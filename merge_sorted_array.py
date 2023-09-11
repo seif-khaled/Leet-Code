@@ -1,5 +1,5 @@
 import random
-
+# def merge( nums1, m, nums2, n):
 def merge_sorted_arr(arr1,arr2):
     j=0
     print(len(arr1),len(arr2))
