@@ -1,0 +1,7 @@
+def permuations(nums):
+    
+        
+        
+            
+    
+    
