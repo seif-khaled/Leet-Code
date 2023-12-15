@@ -185,6 +185,13 @@ def odd_number_sum(l,n):
 #############
 
 def sum_till_one(n):
+    if n==0:
+        return n
+    elif n%9==0:
+        return 9
+    else:
+        return n%9
+    
         
 		
 		 
