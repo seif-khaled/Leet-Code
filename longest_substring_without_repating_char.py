@@ -42,116 +42,30 @@ def longest_sub(s):
     #                     d="".join(d)
 
     #     return max(len(d),len(biggest))
-    # optimized approach
-    # x=dict()
-    # d=""
-    # j=0
-    # i=0
-    # flag=0
-    # while(i<len(s)):
-    #     if s[i] not in x.keys() :
-    #         x[s[i]] = i
-    #         # d+=s[i]
-    #         if s[i] in d:
-    #             # d=s[j:i]
-    #             # print("hello")
-    #             i+=1
-    #             continue
-    #         else:
-    #             d+=s[i]
-    #         i+=1
-    #         # print(i)
-    #     elif s[i] in x.keys():
-    #         flag=1
-    #         # j+=1
-    #     # print(flag)
-        
-    #     # print(d)
-    #     # print(s[i])
-    #     # print(x)
-    #     if flag==1:
-    #         # if i==len(s):
-    #         #     flag=0
-    #         #     break
-    #         if j==i:
-    #             # print("hi 1")
-    #             flag=0
-    #             del x[s[i]]
-    #             d=d.replace(s[i],"")
-                
-    #             # print(x)
-    #             if len(s[j])<len(d):
-    #                 continue
-    #             else:
-    #                 d=s[j]
-    #             # j+=1
-    #             # print(d,s[j:i])
-    #         elif s[j] in x.keys() and s[i]==s[j]:
-    #             # print("hi 2")
-    #             # print(j)
-    #             j+=1
-    #             # d=s[j:i]
-    #             del x[s[i]]
-    #             d=d.replace(s[i],"")
-    #             flag=0
-    #             if len(s[j:i])<len(d):
-    #                 continue
-    #             else:
-    #                 d=s[j:i]
-    #             # print(d,s[j:i])
-                
-    #         elif s[i] in x.keys() and s[i]!=s[j]:
-    #             # print("hi 3")
-                
-    #             # flag=0
-    #             j+=1
-    #             # d=s[j:i]
-    #     # print()
-    #     # print(d,s[j:i])
-    #     # print(d)
-        
-        
-    # print(s[j:i],d)
     
-    # if s.find(d)==-1:
-    #     return len(s[j:i])
-        
-    # # print(s[j:i],d)
-    # return max(len(s[j:i]),len(d))
-    #########################################
+
+    ##############################
+    # optimized approach
     x=dict()
-    j=0
-    i=0
-    d=""
-    mx=-1
-    while i < len(s):
-        if s[i] not in x.keys():
-            x[s[i]] = i
-            if len(d) >= mx:
-                mx = len(d)
-            if s[i] in d:
-                j = max(j, x[s[i]] + 1)
-            d += s[i]
-            i += 1
-        elif s[i] in x.keys():
-            j = max(j, x[s[i]] + 1)
-            if s[j] != s[i]:
-                j += 1
-            elif s[i] == s[j]:
-                j += 1
-                if len(s[j:i+1]) >= mx:
-                    mx = len(s[j:i+1])
-                d = s[j:i+1]
-    # max=-1
-    # for i in c:
-    #     if len(i)>max:
-    #         max=len(i)
+    l=0
+    r=0
+    maxL=0
+    maxR=0
+    maxStr=0
+    while(r<len(s)):
+        if s[r] not in x.keys():
+            x[s[r]]=r
+            r+=1
+        elif s[r] in x.keys():
+            del x[s[l]]
+            l+=1
+        if r-l+1>maxStr:
+            maxStr=r-l+1
+            maxL=l
+            maxR=r
+    return len(s[maxL:maxR]),s[maxL:maxR]
+                    
             
-    # return max
-        
-        
-    # return max(len(s[j:i]),len(d))
-                
             
             
             
@@ -162,15 +76,16 @@ def longest_sub(s):
                 
     
     
-# print(longest_sub("abcabcbb"))
-# print(longest_sub("bbbbb"))
-# print(longest_sub("pwwkew"))
-# print(longest_sub("asljlj"))
-# print(longest_sub(""))
-# print(longest_sub("  "))
+print(longest_sub("abcabcbb"))
+print(longest_sub("bbbbb"))
+print(longest_sub("pwwkew"))
+print(longest_sub("asljlj"))
+print(longest_sub(""))
+print(longest_sub("  "))
 print(longest_sub("dvdf"))
-# print(longest_sub("ohvhjdml"))
-# print(longest_sub("ohomm"))
+print(longest_sub("ohvhjdml"))
+print(longest_sub("ohomm"))
+print(longest_sub("tmmzuxt"))
 
 ###################
 # x=[]
